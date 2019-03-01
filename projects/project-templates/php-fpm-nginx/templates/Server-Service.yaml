@@ -6,6 +6,7 @@ metadata:
   namespace: {{ .Values.service.namespace }}
   labels:
     app: nginx
+    namespace: {{ .Values.service.namespace }}
   annotations:
 {{- if .Values.service.annotations }}
 {{ toYaml .Values.service.annotations | indent 4 }}
@@ -18,12 +19,13 @@ spec:
   ports:
     - name: http
       port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: 80
     - name: https
       port: {{ .Values.service.httpsPort }}
-      targetPort: https
+      targetPort: 80
   selector:
     app: nginx
+    namespace: {{ .Values.service.namespace }}
 
 ---
 apiVersion: v1
@@ -34,9 +36,10 @@ metadata:
 spec:
   selector:    
     app: php7
+    namespace: {{ .Values.service.namespace }}
   type: ClusterIP
   ports:  
   - name: http
-    port: 80
+    port: 9000
     targetPort: 9000
     protocol: TCP

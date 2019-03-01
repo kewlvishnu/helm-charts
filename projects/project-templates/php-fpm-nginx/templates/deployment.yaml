@@ -3,12 +3,14 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: php7-deployment
+  namespace: {{ .Values.service.namespace }}
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         app: php7
+        namespace: {{ .Values.service.namespace }}
     spec:
       containers:
       - name: php7
@@ -20,12 +22,14 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  namespace: {{ .Values.service.namespace }}
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         app: nginx
+        namespace: {{ .Values.service.namespace }}
     spec:
       containers:
       - name: nginx
