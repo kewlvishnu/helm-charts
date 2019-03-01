@@ -1,0 +1,48 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: {{ .Values.service.namespace }}
+  labels:
+    app: nginx
+  annotations:
+{{- if .Values.service.annotations }}
+{{ toYaml .Values.service.annotations | indent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  {{- if (or (eq .Values.service.type "LoadBalancer") (eq .Values.service.type "NodePort")) }}
+  externalTrafficPolicy: {{ .Values.service.externalTrafficPolicy | quote }}
+  {{- end }}
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: http
+      {{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePorts.http)))}}
+      nodePort: {{ .Values.service.nodePorts.http }}
+      {{- end }}
+    - name: https
+      port: {{ .Values.service.httpsPort }}
+      targetPort: https
+      {{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePorts.https)))}}
+      nodePort: {{ .Values.service.nodePorts.https }}
+      {{- end }}
+  selector:
+    app: nginx
+
+---
+apiVersion: v1
+kind: Service
+metadata:  
+  name: php7-service
+  namespace: {{ .Values.service.namespace }}
+spec:
+  selector:    
+    app: php7
+  type: ClusterIP
+  ports:  
+  - name: http
+    port: 80
+    targetPort: 9000
+    protocol: TCP

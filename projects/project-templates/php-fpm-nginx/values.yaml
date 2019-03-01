@@ -1,0 +1,17 @@
+# Default values for kiam.
+
+replicaCount: 1
+service: 
+  namespace: wordpress
+  type: LoadBalancer
+  port: 80
+  httpsPort: 443
+php7:
+  repository: kewlvishnu/phpfpm-app
+  tag: 0.3.0
+  pullPolicy: IfNotPresent
+
+nginx:
+  repository: kewlvishnu/nginx
+  tag: 0.1.0
+  pullPolicy: IfNotPresent
