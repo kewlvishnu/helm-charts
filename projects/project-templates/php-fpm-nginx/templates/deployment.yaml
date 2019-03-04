@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: php7
-        image: "{{ .Values.php7.repository }}:{{ .Values.php7.tag }}"
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 9000
 ---
