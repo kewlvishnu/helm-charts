@@ -15,3 +15,5 @@ nginx:
   repository: kewlvishnu/nginx
   tag: 0.1.0
   pullPolicy: IfNotPresent
+
+podAnnotations: {}

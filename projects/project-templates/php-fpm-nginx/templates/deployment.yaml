@@ -11,6 +11,8 @@ spec:
       labels:
         app: php7
         namespace: {{ .Values.service.namespace }}
+      annotations:
+{{ toYaml .Values.podAnnotations | indent 8 }}
     spec:
       containers:
       - name: php7
@@ -31,6 +33,8 @@ spec:
       labels:
         app: nginx
         namespace: {{ .Values.service.namespace }}
+      annotations:
+{{ toYaml .Values.podAnnotations | indent 8 }}
     spec:
       containers:
       - name: nginx
