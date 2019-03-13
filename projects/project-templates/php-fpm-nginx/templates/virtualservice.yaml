@@ -7,15 +7,15 @@ spec:
   hosts:
   - "*"
   gateways:
-  - nginx-gateway
+  - {{ .Values.virtualservice.gateway }}
   http:
   - match:
     - uri:
-        prefix: /status
+        prefix: {{ .Values.virtualservice.prefix1 }}
     - uri:
-        prefix: /delay
+        prefix: {{ .Values.virtualservice.prefix2 }}
     route:
     - destination:
         port:
           number: 80
-        host: nginx
+        host: {{ .Values.virtualservice.host }}
