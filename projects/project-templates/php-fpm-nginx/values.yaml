@@ -6,6 +6,12 @@ service:
   type: LoadBalancer
   port: 80
   httpsPort: 443
+virtualservice:
+  name: nginx-service-1
+  gateway: nginx-gateway-1
+  prefix1: /status1
+  prefix2: /delay1
+  host: nginx  
 image:
   repository: kewlvishnu/phpfpm-app
   tag: 0.3.0
