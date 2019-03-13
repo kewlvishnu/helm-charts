@@ -12,10 +12,7 @@ metadata:
 {{ toYaml .Values.service.annotations | indent 4 }}
 {{- end }}
 spec:
-  type: {{ .Values.service.type }}
-  {{- if (or (eq .Values.service.type "LoadBalancer") (eq .Values.service.type "NodePort")) }}
-  externalTrafficPolicy: {{ .Values.service.externalTrafficPolicy | quote }}
-  {{- end }}
+  type: ClusterIP
   ports:
     - name: http
       port: {{ .Values.service.port }}
@@ -26,7 +23,7 @@ spec:
   selector:
     app: nginx
     namespace: {{ .Values.service.namespace }}
-
+    
 ---
 apiVersion: v1
 kind: Service
