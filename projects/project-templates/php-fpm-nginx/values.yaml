@@ -11,7 +11,7 @@ virtualservice:
   gateway: nginx-gateway-1
   prefix1: /status1
   prefix2: /delay1
-  host: nginx  
+  host: nginx-service  
 image:
   repository: kewlvishnu/phpfpm-app
   tag: 0.3.0

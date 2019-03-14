@@ -7,10 +7,6 @@ metadata:
   labels:
     app: nginx
     namespace: {{ .Values.service.namespace }}
-  annotations:
-{{- if .Values.service.annotations }}
-{{ toYaml .Values.service.annotations | indent 4 }}
-{{- end }}
 spec:
   hosts:
   - "*"
