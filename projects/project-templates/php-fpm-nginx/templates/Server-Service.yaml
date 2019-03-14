@@ -30,5 +30,5 @@ spec:
   type: ClusterIP
   ports:  
   - name: http
-    port: 9000
+    port: 9001
     protocol: TCP
