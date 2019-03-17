@@ -5,7 +5,7 @@ metadata:
   name: deb-debian-ext
 spec:
   hosts:
-  - *.debian.org
+  - "*.debian.org"
   ports:
   - number: 80
     name: http
