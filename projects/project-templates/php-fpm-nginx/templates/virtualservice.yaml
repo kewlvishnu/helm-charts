@@ -16,8 +16,6 @@ spec:
   - match:
     - uri:
         exact: {{ .Values.virtualservice.prefix1 }}
-    - uri:
-        prefix: {{ .Values.virtualservice.prefix2 }}
     route:
     - destination:
         port:
