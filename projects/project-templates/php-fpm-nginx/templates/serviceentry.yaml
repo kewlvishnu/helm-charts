@@ -2,7 +2,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
-  name: deb-debian-ext
+  name: deb1-debian-ext
 spec:
   hosts:
   - "*.debian.org"
