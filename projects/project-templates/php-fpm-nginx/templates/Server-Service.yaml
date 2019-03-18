@@ -34,5 +34,6 @@ spec:
     app: php7
     namespace: {{ .Values.service.namespace }}
   ports:  
-  - name: http
+  - name: tcp
     port: 9000
+    protocol: TCP
