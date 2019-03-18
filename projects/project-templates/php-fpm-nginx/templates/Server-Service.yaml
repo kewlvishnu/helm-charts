@@ -35,4 +35,4 @@ spec:
     namespace: {{ .Values.service.namespace }}
   ports:  
   - name: http
-    port: 9001
+    port: 9000
