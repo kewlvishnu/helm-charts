@@ -27,8 +27,6 @@ spec:
   selector:    
     app: php7
     namespace: {{ .Values.service.namespace }}
-  type: ClusterIP
   ports:  
   - name: http
     port: 9001
-    protocol: TCP
