@@ -2,10 +2,12 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
-  name: deb-debian-ext
+  name: debian-ext
 spec:
   hosts:
-  - "*.debian.org"
+  - deb.debian.org
+  - ftp.us.debian.org
+  - security.debian.org
   ports:
   - number: 80
     name: http
