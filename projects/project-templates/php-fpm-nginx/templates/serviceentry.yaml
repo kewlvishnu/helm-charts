@@ -5,25 +5,10 @@ metadata:
   name: deb-debian-ext
 spec:
   hosts:
-  - deb.debian.org
-  - ftp.us.debian.org
-  - security.debian.org
+  - "*.debian.org"
   ports:
   - number: 80
     name: http
     protocol: HTTP
   resolution: DNS
   location: MESH_EXTERNAL
----
-apiVersion: "config.istio.io/v1alpha2"
-kind: EgressRule
-metadata:
-  name: ubuntu-egress-rule
-spec:
-  destination:
-    service: "*.ubuntu.com"
-  ports:
-    - port: 80
-      protocol: http
-    - port: 443
-      protocol: https
