@@ -23,6 +23,12 @@ kind: Service
 metadata:  
   name: php7-service
   namespace: {{ .Values.service.namespace }}
+  labels:
+    app: php7-service
+  annotations:
+{{- if .Values.service.annotations }}
+{{ toYaml .Values.service.annotations | indent 4 }}
+{{- end }}
 spec:
   selector:    
     app: php7
