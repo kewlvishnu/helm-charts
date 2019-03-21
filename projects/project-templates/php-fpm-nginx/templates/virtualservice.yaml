@@ -9,7 +9,7 @@ metadata:
     namespace: {{ .Values.service.namespace }}
 spec:
   hosts:
-  - "*.examavenue.com"
+  - {{ .Values.virtualservice.hostname }}
   gateways:
   - {{ .Values.virtualservice.gateway }}
   http:
