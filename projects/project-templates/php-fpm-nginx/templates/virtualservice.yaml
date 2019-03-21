@@ -9,7 +9,7 @@ metadata:
     namespace: {{ .Values.service.namespace }}
 spec:
   hosts:
-  - "*"
+  - "*.korde.org"
   gateways:
   - {{ .Values.virtualservice.gateway }}
   http:
