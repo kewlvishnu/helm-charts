@@ -5,7 +5,7 @@ metadata:
   name: {{ .Values.virtualservice.name }}
   namespace: {{ .Values.service.namespace }}
   labels:
-    app: nginx
+    app: {{ .Values.service.nginx }}
     namespace: {{ .Values.service.namespace }}
 spec:
   hosts:

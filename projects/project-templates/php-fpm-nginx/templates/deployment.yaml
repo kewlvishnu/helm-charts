@@ -9,13 +9,13 @@ spec:
   template:
     metadata:
       labels:
-        app: php7
+        app: {{ .Values.service.php7 }}
         namespace: {{ .Values.service.namespace }}
       annotations:
 {{ toYaml .Values.podAnnotations | indent 8 }}
     spec:
       containers:
-      - name: php7
+      - name: {{ .Values.service.php7 }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
@@ -31,13 +31,13 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx
+        app: {{ .Values.service.nginx }}
         namespace: {{ .Values.service.namespace }}
       annotations:
 {{ toYaml .Values.podAnnotations | indent 8 }}
     spec:
       containers:
-      - name: nginx
+      - name: {{ .Values.service.nginx }}
         image: "{{ .Values.nginx.repository }}:{{ .Values.nginx.tag }}"
         ports:
         - containerPort: 80
