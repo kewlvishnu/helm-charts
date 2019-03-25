@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: php7-deployment
+  name: {{ .Values.service.php7 }}-deployment
   namespace: {{ .Values.service.namespace }}
 spec:
   replicas: 1
@@ -24,7 +24,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: {{ .Values.service.nginx }}-deployment
   namespace: {{ .Values.service.namespace }}
 spec:
   replicas: 1
