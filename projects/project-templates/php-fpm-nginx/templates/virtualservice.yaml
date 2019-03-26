@@ -20,4 +20,4 @@ spec:
     - destination:
         port:
           number: 80
-        host: {{ .Values.service.nginx }}-services
+        host: {{ .Values.service.nginx }}-service
